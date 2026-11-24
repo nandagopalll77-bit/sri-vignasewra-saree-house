@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SRI VIGNASEWRA SAREE HOUSE | Exclusive Sarees, Kurtas & Designer Dresses</title>
   <meta name="description" content="Shop authentic Kanchipuram Silk Sarees, Banarasi Brocades, Designer Kurtas, Anarkalis, Indo-Western Gowns & Festive Dresses at Sri Vignasewra Saree House. Pan-India Free Shipping & WhatsApp Video Shopping.">
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23780016'/><circle cx='50' cy='50' r='42' fill='none' stroke='%23C5A059' stroke-width='4'/><text x='50' y='64' font-size='42' font-family='serif' fill='%23E5C378' text-anchor='middle'>V</text></svg>">
 </head>
@@ -775,8 +776,22 @@
   <!-- ================= TOAST NOTIFICATION ================= -->
   <div class="toast-box" id="toast"></div>
 
-  <!-- Scripts -->
-  <script src="js/products.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Scripts with fallback to root or js folder -->
+  <script>
+    function loadScript(src, fallback) {
+      var s = document.createElement('script');
+      s.src = src;
+      s.onerror = function() {
+        if (fallback) {
+          var fb = document.createElement('script');
+          fb.src = fallback;
+          document.body.appendChild(fb);
+        }
+      };
+      document.body.appendChild(s);
+    }
+  </script>
+  <script src="products.js" onerror="this.onerror=null;this.src='js/products.js'"></script>
+  <script src="app.js" onerror="this.onerror=null;this.src='js/app.js'"></script>
 </body>
 </html>
